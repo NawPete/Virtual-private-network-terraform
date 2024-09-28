@@ -1,3 +1,5 @@
+Introduction
+
 Welcome to this GitHub repository, designed to guide you in setting up and managing cloud infrastructure using Terraform, while automating deployment workflows with GitHub Actions. The repository provides step-by-step instructions, valuable resources, and best practices, helping you streamline infrastructure management and deployment.
 
 Terraform is an open-source tool that enables you to implement Infrastructure as Code (IaC), allowing you to describe, create, and provision cloud infrastructure resources through a declarative configuration language. Whether you need to manage virtual machines, databases, or networking, Terraform ensures your infrastructure is scalable and maintainable. By using Infrastructure as Code, you can eliminate manual setup processes, reduce the chances of errors, and ensure consistent environments across different stages, such as development, testing, and production.
