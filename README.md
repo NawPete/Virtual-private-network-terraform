@@ -1,17 +1,44 @@
-Introduction
+# Cloud Infrastructure with Terraform
 
-Welcome to this GitHub repository, designed to guide you in setting up and managing cloud infrastructure using Terraform, while automating deployment workflows with GitHub Actions. The repository provides step-by-step instructions, valuable resources, and best practices, helping you streamline infrastructure management and deployment.
+### This project utilizes Terraform to manage cloud infrastructure, allowing for the automated creation and configuration of resources. The project is organized into modules, which enhances modularity and ease of management for different infrastructure components.
+Modules
 
-Terraform is an open-source tool that enables you to implement Infrastructure as Code (IaC), allowing you to describe, create, and provision cloud infrastructure resources through a declarative configuration language. Whether you need to manage virtual machines, databases, or networking, Terraform ensures your infrastructure is scalable and maintainable. By using Infrastructure as Code, you can eliminate manual setup processes, reduce the chances of errors, and ensure consistent environments across different stages, such as development, testing, and production.
+### The project includes the following modules, each responsible for a specific part of the infrastructure:
 
-Meanwhile, GitHub Actions offers a powerful way to automate workflows directly within your GitHub repository. It’s not just a Continuous Integration and Continuous Delivery (CI/CD) tool, but a full-fledged automation platform. GitHub Actions enables you to define workflows that automatically trigger tasks such as testing, building, or deploying infrastructure whenever changes are made to your code. This integration simplifies managing complex infrastructure updates while minimizing the need for human intervention during the deployment process.
+#### Alb (Application Load Balancer)
+The ALB module manages the configuration of an Application Load Balancer, enabling incoming traffic distribution across multiple instances.
+Files in the module:
+- main.tf: Defines resources for the ALB.
+- outputs.tf: Specifies outputs that export values for use in other parts of the infrastructure.
+- variables.tf: Input variables that allow customization of the ALB configuration.
 
-Together, Terraform and GitHub Actions offer a comprehensive approach to managing and deploying infrastructure. By defining your infrastructure as code using Terraform, you can describe cloud resources like virtual machines, databases, and load balancers in a consistent and repeatable way. Terraform’s declarative nature ensures that the infrastructure you write in the configuration files accurately reflects what is deployed in your cloud environment.
+#### EC2 (EC2 Instances)
+The EC2 module manages the configuration of EC2 instances, which are virtual machines hosting applications.
+Files in the module:
+- data.tf: Defines data sources that reference existing resources.
+- main.tf: Contains EC2 resource definitions.
+- outputs.tf: Exports values related to EC2.
+- variables.tf: Contains variables for flexible configuration of EC2 instances.
 
-Automating your deployments is made easy with GitHub Actions. Whenever you make changes to your Terraform code, GitHub Actions will automatically trigger workflows to test, plan, and apply those updates, ensuring your infrastructure is seamlessly deployed without requiring manual intervention.
+#### SG (Security Groups)
+The SG module manages security groups, which control incoming and outgoing traffic to cloud resources.
+Files in the module:
+- main.tf: Defines the Security Group resources.
+- outputs.tf: Exports values related to the Security Group.
+- variables.tf: Contains variables to customize traffic rules within the Security Group.
 
-Storing your Terraform configurations in a Git repository allows you to track infrastructure changes over time and collaborate more effectively with your team. Version control ensures you can easily review, approve, and revert changes if necessary, making your infrastructure code as maintainable as your application code.
+#### VPC (Virtual Private Cloud)
+The VPC module creates and configures a Virtual Private Cloud (VPC), providing network isolation and control in the cloud environment.
+Files in the module:
+- main.tf: Contains VPC resource definitions, such as subnets, route tables, and other networking resources.
 
-This repository encourages best practices for Infrastructure as Code. It promotes keeping your configurations well-documented, implementing code reviews before applying infrastructure changes, and versioning your infrastructure code for greater reliability. Following these practices improves the maintainability and robustness of your cloud infrastructure.
+### Main Files
 
-Overall, this project serves as a comprehensive starting point for anyone looking to automate the deployment and management of infrastructure. Whether you are a DevOps engineer, cloud architect, or new to automation, this guide will help you build a strong foundation for managing cloud resources efficiently using Terraform and GitHub Actions. As you gain more experience, you can expand and adapt the setup to accommodate more advanced use cases, ensuring your infrastructure remains efficient and scalable as your needs evolve.
+### The project’s main directory includes the following Terraform files:
+
+- main.tf: The main Terraform file, which integrates modules and orchestrates their deployment.
+- provider.tf: Cloud provider configuration, specifying the cloud environment where resources will be deployed (e.g., AWS).
+- terraform.tfvars: A variables file that defines specific values for variables used across the modules, allowing for infrastructure customization.
+- variables.tf: Variable definitions used throughout the project, enabling flexibility and configurability.
+
+#### This Terraform project simplifies cloud infrastructure management in a modular and automated manner, enabling rapid deployment, resource scaling, and configuration adjustments tailored to application needs.
